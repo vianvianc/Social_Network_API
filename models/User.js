@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { User } = require(".");
-const thoughtSchema = require("./Thought");
+
 
 const userSchema = new Schema(
   {
@@ -16,8 +15,18 @@ const userSchema = new Schema(
       trim: true,
       match: /.+\@.+\..+/,
     },
-    thoughts: [thoughtSchema],
-    friends: [friendSchema],
+    thoughts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Thought",
+        },
+        ],
+    friends: [
+        {
+            tpye: Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
   },
   {
     toJSON: {
@@ -25,6 +34,11 @@ const userSchema = new Schema(
     },
   }
 );
-const User = model('user', userSchema);
+userSchema.virtual("friend_count").get(function () {
+    return this.friends.length;
+});
+
+
+const User = model('User', userSchema);
 
 module.exports = User;

@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const formatDate = require("../utils/date");
+const reactionSchema = require("./Reaction");
 
 const thoughtSchema = new Schema(
     {
@@ -12,14 +14,22 @@ const thoughtSchema = new Schema(
     createdAt: {
     type: Date,
     default: Date.now(),
+    get: (dateNow) => formatDate(dateNow),
     // Use a getter method to format the timestamp on query
     },
     username: { 
-        // (The user that created this thought)
+        
     type: String,
     required: true
+    },
+    reactions: [reactionSchema], 
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+        id: false,
     }
-reactions (These are like replies)
-    Array of nested documents created with the reactionSchema
-    }
-)
+);
+const Thought = model("Thought", thoughtSchema);
+module.exports = Thought;
