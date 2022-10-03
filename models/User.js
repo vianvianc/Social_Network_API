@@ -13,7 +13,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      match: /.+\@.+\..+/,
+      match: [
+          /.+\@.+\..+/, "invalid email.",
+    ],
     },
     thoughts: [
         {
