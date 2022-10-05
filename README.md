@@ -5,7 +5,7 @@ MongoDB is a popular choice for many social networks due to its speed with large
 I have built an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. I used Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 Here is the github repository https://github.com/vianvianc/Social_Network_API
-Here is a walkthrough video of it funcitoning in Insomnia.
+Here is a walkthrough video of it functioning in Insomnia.
 https://drive.google.com/file/d/1v6wrsIO051F26HqPVF7TzJw0_WBcsc_y/view
 
 GIVEN a social network API
