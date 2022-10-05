@@ -13,7 +13,8 @@
 // module.exports = connection;
 
 const mong = require("mongoose");
-mong.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/social", {
+mong.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/social", {
+// mong.connect("mongodb://localhost:27017/social", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

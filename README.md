@@ -1,4 +1,13 @@
 # Social_Network_API
+
+MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. In this app I use several of the technologies that social networking platforms use in their full-stack applications. The foundation of these applications is data, and in this app I have demostrated that I understand how to build and structure the API first.
+
+I have built an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. I used Express.js for routing, a MongoDB database, and the Mongoose ODM.
+
+Here is the github repository https://github.com/vianvianc/Social_Network_API
+Here is a walkthrough video of it funcitoning in Insomnia.
+https://drive.google.com/file/d/1v6wrsIO051F26HqPVF7TzJw0_WBcsc_y/view
+
 GIVEN a social network API
 WHEN I enter the command to invoke the application
 THEN my server is started and the Mongoose models are synced to the MongoDB database
@@ -33,8 +42,6 @@ User
 
 Schema Settings
 
-Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
-
 Thought
 
     thoughtText
@@ -56,7 +63,7 @@ Thought
 
 Schema Settings
 
-Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
+Created a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 
 Reaction (SCHEMA ONLY)
 
@@ -93,8 +100,8 @@ API Routes
 
 // example data
 {
-  "username": "lernantino",
-  "email": "lernantino@gmail.com"
+"username": "lernantino",
+"email": "lernantino@gmail.com"
 }
 
     PUT to update a user by its _id
@@ -119,9 +126,9 @@ BONUS: Remove a user's associated thoughts when deleted.
 
 // example data
 {
-  "thoughtText": "Here's a cool thought...",
-  "username": "lernantino",
-  "userId": "5edff358a0fcb779aa7b118b"
+"thoughtText": "Here's a cool thought...",
+"username": "lernantino",
+"userId": "5edff358a0fcb779aa7b118b"
 }
 
     PUT to update a thought by its _id
@@ -133,4 +140,3 @@ BONUS: Remove a user's associated thoughts when deleted.
     POST to create a reaction stored in a single thought's reactions array field
 
     DELETE to pull and remove a reaction by the reaction's reactionId value
-

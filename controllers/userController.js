@@ -59,7 +59,7 @@ const userController = {
         res.status(500).json(err);
       });
   },
-  // delete user (BONUS: and delete associated thoughts)
+ //BONUS
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((databaseUser) => {
@@ -67,7 +67,7 @@ const userController = {
           return res.status(404).json({ message: "No user with id provided" });
         }
 
-        return Thought.deleteMany({ _id: { $in: databaseUserData.thoughts } });
+        return Thought.deleteMany({ _id: { $in: databaseUser.thoughts } });
       })
       .then(() => {
         res.json({ message: "User and users thoughts deleted" });
